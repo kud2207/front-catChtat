@@ -5,8 +5,11 @@ import toast from "react-hot-toast";
 import { io } from "socket.io-client";
 import type { AxiosError } from "axios";
 
-const BASE_URL: string = import.meta.env.MODE === "development" ? "http://localhost:5000" : "/";
-
+//reponce evenement Socket.io
+const BASE_URL: string =
+  import.meta.env.MODE === "production"
+    ? "https://apicatchtat.onrender.com"
+    : "http://localhost:5000";
 
 export const useAuthStore = create<UseAuthState>((set, get) => ({
   authUser: null,
